@@ -12,10 +12,12 @@ export function useMainContract() {
     owner_address: Address;
   }>();
 
+  const [balance, setBalance] = useState <null | number>(0);
+
   const mainContract = useAsyncInitialize(async () => {
     if (!client) return;
     const contract = new MainContract(
-      Address.parse("EQCS7PUYXVFI-4uvP1_vZsMVqLDmzwuimhEPtsyQKIcdeNPu") // replace with your address from tutorial 2 step 8
+      Address.parse("EQCGttC5Zi9Eyn53PekKBF8IJTA-Ig7lD_m-rX9tWlIdYfsL") // replace with your address from tutorial 2 step 8
     );
     return client.open(contract) as OpenedContract<MainContract>;
   }, [client]);
@@ -25,17 +27,20 @@ export function useMainContract() {
       if (!mainContract) return;
       setContractData(null);
       const val = await mainContract.getData();
+      const { balance } = await mainContract.getBalance();
       setContractData({
         counter_value: val.number,
         recent_sender: val.recent_sender,
         owner_address: val.owner_address,
       });
+      setBalance(balance);
     }
     getValue();
   }, [mainContract]);
 
   return {
     contract_address: mainContract?.address.toString(),
+    contract_balance: balance,
     ...contractData,
   };
 }
