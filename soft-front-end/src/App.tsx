@@ -46,7 +46,7 @@ function App() {
             showAlert();
           }}
         >
-          Show Aler
+          Show Alert
         </a>
 
         <br />
