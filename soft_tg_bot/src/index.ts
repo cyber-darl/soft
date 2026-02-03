@@ -5,7 +5,7 @@ import { beginCell, toNano } from "ton-core";
 import qs from "qs";
 
 dotenv.config();
-const bot = new Telegraf(process.env.TG_BOT_TOKEN!);
+const bot = new Telegraf(process.env.TG_BOT_TOKEN!); //iniiate bot instance with HTTP API key in Botfather
 
 bot.start((ctx) =>
     ctx. reply ("Welcome to our counter app!", {
@@ -21,12 +21,13 @@ bot.start((ctx) =>
   bot.on(message("web_app_data"), (ctx) => ctx.reply("ok"));
 
   bot.hears("Increment by 5", (ctx) => {
+    //TODO: send increment transaction
     const msg_body = beginCell() 
     .storeUint(1, 32)
     .storeUint(5, 32)
     .endCell();
 
-    let link = `https://test.tonhub.com/transfer/${process.env.SC_ADDRESS}?${qs.stringify(
+    let link = `ton://transfer/${process.env.SC_ADDRESS}?${qs.stringify(
       {
         text: "Simple test transaction",
         amount: toNano("0.05").toString(10),
@@ -48,6 +49,7 @@ bot.start((ctx) =>
 
 
   bot.hears("Deposit 1 TON", (ctx) => {
+     //TODO: Deposit 1 TON
     const msg_body = beginCell().storeUint(2, 32).endCell();
 
       
