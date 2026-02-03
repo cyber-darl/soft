@@ -13,7 +13,7 @@ bot.start((ctx) =>
         keyboard: [
           ["Increment by 5"],
           ["Deposit 1 TON"],
-          ["Withdraw 0.8 TON"],
+          ["Withdraw 0.7 TON"],
         ],
       },
     })
