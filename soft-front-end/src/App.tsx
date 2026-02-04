@@ -17,9 +17,21 @@ function App() {
   } = useMainContract();
 
   const {connected} = useTonConnect();
-  const showAlert = () => {
-    WebApp.showAlert("Hey there!");
-  };
+
+  // Initialize WebApp safely
+  useEffect(() => {
+    // Check if we're in a Telegram Web App environment
+    if (WebApp.initDataUnsafe.user) {
+      WebApp.ready();
+      WebApp.expand();
+    }
+  }, []);
+
+ const showAlert = () => {
+  // Just use browser alert for now
+  alert("Hello from TON App!");
+};
+  
   return (
     <div>
       <div>
