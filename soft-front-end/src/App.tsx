@@ -4,7 +4,7 @@ import { useMainContract } from "./hooks/useMainContract";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { fromNano } from "ton-core";
 import WebApp from '@twa-dev/sdk'
-
+import { useEffect } from "react";
 
 function App() {
   const {

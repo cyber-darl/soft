@@ -7,9 +7,9 @@ export async function run(provider: NetworkProvider) {
         MainContract.createFromConfig(
             {
                 number: 0,
-                address: address("0QATA2P3V3XrVgGEi7Rz6AbBCppIcTRmC7lvIZz7mX2XJVoE"),
+                address: address("EQCA0v6nQm92kle8RIBPpuN3pPxv0BBikXJOM4NpHZ2CVyaP"),
                 owner_address: address(
-                  "0QATA2P3V3XrVgGEi7Rz6AbBCppIcTRmC7lvIZz7mX2XJVoE"
+                  "EQCA0v6nQm92kle8RIBPpuN3pPxv0BBikXJOM4NpHZ2CVyaP"
                 ),
               },
             await compile('Soft')
