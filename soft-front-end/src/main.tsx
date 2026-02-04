@@ -9,6 +9,6 @@ const manifestUrl = 'https://cyber-darl.github.io/soft/tonconnect-manifest.json'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <TonConnectUIProvider manifestUrl={manifestUrl}>
-    <App />
+    <App/>
   </TonConnectUIProvider>,
 )
