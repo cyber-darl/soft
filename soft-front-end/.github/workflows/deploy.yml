@@ -1,4 +1,3 @@
-# Deploy the front-end (soft-front-end) to GitHub Pages (gh-pages branch)
 on:
   push:
     branches:
@@ -52,4 +51,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
-
