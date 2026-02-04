@@ -3,9 +3,8 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { useMainContract } from "./hooks/useMainContract";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { fromNano } from "ton-core";
-import WebApp from '@twa-dev/sdk';
-import { useEffect } from 'react';
-
+import WebApp from '@twa-dev/sdk'
+import { useEffect } from "react";
 
 function App() {
   const {
@@ -59,7 +58,7 @@ function App() {
             showAlert();
           }}
         >
-          Show Alert
+          Show Alert my fans
         </a>
 
         <br />
