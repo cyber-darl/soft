@@ -28,9 +28,10 @@ function App() {
     }
   }, []);
 
-  const showAlert = () => {
-    WebApp.showAlert("Hey there!");
-  };
+ const showAlert = () => {
+  // Just use browser alert for now
+  alert("Hello from TON App!");
+};
   
   return (
     <div>
