@@ -3,9 +3,10 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { useMainContract } from "./hooks/useMainContract";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { fromNano } from "ton-core";
-import WebApp from '@twa-dev/sdk'
+import WebApp from '@twa-dev/sdk';
+import { useEffect } from 'react';
 
-WebApp.showAlert('Hey there!');
+
 function App() {
   const {
     contract_address,
@@ -17,9 +18,20 @@ function App() {
   } = useMainContract();
 
   const {connected} = useTonConnect();
+
+  // Initialize WebApp safely
+  useEffect(() => {
+    // Check if we're in a Telegram Web App environment
+    if (WebApp.initDataUnsafe.user) {
+      WebApp.ready();
+      WebApp.expand();
+    }
+  }, []);
+
   const showAlert = () => {
     WebApp.showAlert("Hey there!");
   };
+  
   return (
     <div>
       <div>
