@@ -1,8 +1,64 @@
 {
-  "hash": "34613ac5",
+  "hash": "ce499799",
   "configHash": "4c829467",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "138fa38a",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "d3391dbf",
+  "browserHash": "ddce3b17",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "65b05a4b",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "c3b280bf",
+      "needsInterop": true
+    },
+    "@tonconnect/ui-react": {
+      "src": "../../node_modules/@tonconnect/ui-react/lib/index.mjs",
+      "file": "@tonconnect_ui-react.js",
+      "fileHash": "47f8774c",
+      "needsInterop": false
+    },
+    "ton-core": {
+      "src": "../../node_modules/ton-core/dist/index.js",
+      "file": "ton-core.js",
+      "fileHash": "582eccde",
+      "needsInterop": true
+    },
+    "@twa-dev/sdk": {
+      "src": "../../node_modules/@twa-dev/sdk/dist/index.js",
+      "file": "@twa-dev_sdk.js",
+      "fileHash": "0f0db54f",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "b91001fe",
+      "needsInterop": true
+    },
+    "ton": {
+      "src": "../../node_modules/ton/dist/index.js",
+      "file": "ton.js",
+      "fileHash": "1a116b4f",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-TXI3HGC7": {
+      "file": "chunk-TXI3HGC7.js"
+    },
+    "chunk-47T64MKZ": {
+      "file": "chunk-47T64MKZ.js"
+    },
+    "chunk-4YTTWAGQ": {
+      "file": "chunk-4YTTWAGQ.js"
+    },
+    "chunk-7D4SUZUM": {
+      "file": "chunk-7D4SUZUM.js"
+    }
+  }
 }
