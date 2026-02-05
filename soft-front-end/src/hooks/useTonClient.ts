@@ -1,6 +1,14 @@
 import { TonClient } from 'ton';
 import { useAsyncInitialize } from './useAsyncInitialize';
 
+
+const toncenter_api = import.meta.env.VITE_TONCENTER_API;
+
+if (!toncenter_api) {
+  throw new Error("toncenter api key not found");
+}
+
+
 export function useTonClient() {
   return useAsyncInitialize(async () => {
     const endpoint = "https://testnet.toncenter.com/api/v2/jsonRPC";
@@ -8,7 +16,7 @@ export function useTonClient() {
     
     return new TonClient({
       endpoint: endpoint,
-      apiKey: "2874420b1b4a82fa0e83a79306339f6dc14399523c4dbc8126a87ca691849a3d" // ← Paste your key here
+      apiKey: toncenter_api // ← Paste your key here
     });
   });
 }

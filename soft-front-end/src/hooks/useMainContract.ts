@@ -5,6 +5,15 @@ import { useAsyncInitialize } from "./useAsyncInitialize";
 import { Address, OpenedContract, toNano } from "ton-core";
 import { useTonConnect } from "./useTonConnect";
 
+
+
+
+const BOT_ADDRESS = import.meta.env.VITE_BOT_ADDRESS || import.meta.env.VITE_SC_ADDRESS;
+if (!BOT_ADDRESS) {
+  throw new Error("Bot address not found! Set either VITE_BOT_ADDRESS or VITE_SC_ADDRESS in environment variables");
+}
+
+
 export function useMainContract() {
   const client = useTonClient();
   const { sender } = useTonConnect();
@@ -23,7 +32,7 @@ export function useMainContract() {
   const mainContract = useAsyncInitialize(async () => {
     if (!client) return;
     const contract = new MainContract(
-      Address.parse("EQBz0DvKJbJUDNRMmKM64nC4_2FnCGNGkO81VN43keyRWGTF") 
+      Address.parse(BOT_ADDRESS!) 
     );
     return client.open(contract) as OpenedContract<MainContract>;
   }, [client]);
