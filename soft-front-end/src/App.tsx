@@ -29,7 +29,7 @@ function App() {
 
  const showAlert = () => {
   // Just use browser alert for now
-  alert("Hey there");
+  alert("Hey there!");
 };
   
   return (
