@@ -19,7 +19,7 @@ if (!BOT_ADDRESS) {
 const bot = new Telegraf(BOT_TOKEN); //iniiate bot instance with HTTP API key in Botfather
 
 bot.start((ctx) =>
-    ctx. reply ("Welcome to our counter app!", {
+    ctx. reply ("Welcome to our counter app!!", {
       reply_markup: {
         keyboard: [
           ["Increment by 5"],

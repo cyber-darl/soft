@@ -25,6 +25,7 @@ jobs:
         env:
           VITE_TONCENTER_API: ${{ secrets.VITE_TONCENTER_API }}
           VITE_SC_ADDRESS: ${{ secrets.VITE_SC_ADDRESS }}
+          VITE_BOT_ADDRESS: ${{ secrets.BOT_ADDRESS }} 
         run: npm run build
 
       - name: Upload production-ready build files
