@@ -10,7 +10,7 @@ import { useTonConnect } from "./useTonConnect";
 
 const BOT_ADDRESS = import.meta.env.VITE_BOT_ADDRESS || import.meta.env.VITE_SC_ADDRESS;
 if (!BOT_ADDRESS) {
-  throw new Error("Bot address not found! Set either VITE_BOT_ADDRESS or VITE_SC_ADDRESS in environment variables");
+  throw new Error("Bot address not found, Set either VITE_BOT_ADDRESS or VITE_SC_ADDRESS in environment variables");
 }
 
 
