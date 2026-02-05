@@ -1,11 +1,22 @@
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import { Telegraf } from "telegraf";
 import { message } from "telegraf/filters";
 import { beginCell, toNano } from "ton-core";
 import qs from "qs";
 
 dotenv.config();
-const bot = new Telegraf(process.env.TG_BOT_TOKEN!); //iniiate bot instance with HTTP API key in Botfather
+const BOT_TOKEN = process.env.BOT_TOKEN || process.env.TG_BOT_TOKEN;
+if (!BOT_TOKEN) {
+  throw new Error("Bot token not found! Set either BOT_TOKEN or TG_BOT_TOKEN in environment variables");
+}
+const BOT_ADDRESS = process.env.BOT_ADDRESS || process.env.SC_ADDRESS;
+if (!BOT_ADDRESS) {
+  throw new Error("Bot address not found! Set either BOT_ADDRESS or SC_ADDRESS in environment variables");
+}
+
+
+
+const bot = new Telegraf(BOT_TOKEN); //iniiate bot instance with HTTP API key in Botfather
 
 bot.start((ctx) =>
     ctx. reply ("Welcome to our counter app!", {
@@ -27,7 +38,7 @@ bot.start((ctx) =>
     .storeUint(5, 32)
     .endCell();
 
-    let link = `ton://transfer/${process.env.SC_ADDRESS}?${qs.stringify(
+    let link = `ton://transfer/${BOT_ADDRESS}?${qs.stringify(
       {
         text: "Simple test transaction",
         amount: toNano("0.05").toString(10),
@@ -54,7 +65,7 @@ bot.start((ctx) =>
 
       
     let link = `https://app.tonkeeper.com/transfer/${
-        process.env.SC_ADDRESS
+        BOT_ADDRESS
     }?${qs.stringify(
         {
             text: "Deposit 1 TON",
@@ -83,7 +94,7 @@ bot.start((ctx) =>
     const msg_body = beginCell().storeUint(3, 32).storeCoins(toNano(`0.7`)).endCell();
   
     let link = `https://test.tonhub.com/transfer/${
-      process.env.SC_ADDRESS
+      BOT_ADDRESS
     }?${qs.stringify({
       text: "Withdraw 0.7 TON",
       amount: toNano('0.05').toString (10),
