@@ -3,6 +3,10 @@ import { Telegraf } from "telegraf";
 import { message } from "telegraf/filters";
 import { beginCell, toNano } from "ton-core";
 import qs from "qs";
+import http from 'http';
+
+const PORT = process.env.PORT || 3000;
+http.createServer((_, res) => res.end('OK')).listen(PORT);
 
 dotenv.config();
 const BOT_TOKEN = process.env.BOT_TOKEN || process.env.TG_BOT_TOKEN;
